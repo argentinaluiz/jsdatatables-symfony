@@ -1,0 +1,19 @@
+parameters:
+    js.datatables_manager.class: JS\DatatablesBundle\Service\JSDataTablesManager
+    js.datatables.field_filter.class: JS\DatatablesBundle\Service\FieldFilterManager
+    js.datatables.list_clause.class: JS\DatatablesBundle\Service\ListClause
+    zend.filter_chain.class: Zend\Filter\FilterChain
+    
+services:
+    js.datatables_manager:
+        class: %js.datatables_manager.class%
+        calls:
+            -[ setContainer,[@service_container] ]
+
+    js.datatables.field_filter:
+        class: %js.datatables.field_filter.class%
+        arguments: [%zend.filter_chain.class%]
+        
+    js.datatables.list_clause:
+        class: %js.datatables.list_clause.class%
+        arguments: [@js.datatables.field_filter]

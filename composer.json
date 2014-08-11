@@ -1,0 +1,36 @@
+{
+    "name": "argentinaluiz/jsdatatables-symfony",
+    "description": "Library based in symfony to manager requests datatables",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "symfony",
+        "datatables",
+        "doctrine"
+    ],
+    "homepage": "https://github.com/argentinaluiz/jsdatatables-symfony.git",
+    "authors": [
+        {
+            "name": "Luiz Carlos",
+            "email": "argentinaluiz@gmail.com",
+            "homepage": "https://github.com/argentinaluiz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "~2.4",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "branch-alias": {
+            "dev-master": "2.4-dev"
+        }
+    }
+}
