@@ -5,15 +5,18 @@ parameters:
     zend.filter_chain.class: Zend\Filter\FilterChain
     
 services:
-    js.datatables_manager:
-        class: %js.datatables_manager.class%
-        calls:
-            -[ setContainer,[@service_container] ]
-
+    zend.filter_chain:
+        class: %zend.filter_chain.class%
+        
     js.datatables.field_filter:
         class: %js.datatables.field_filter.class%
-        arguments: [%zend.filter_chain.class%]
+        arguments: [@zend.filter_chain]
         
     js.datatables.list_clause:
         class: %js.datatables.list_clause.class%
         arguments: [@js.datatables.field_filter]
+
+    js.datatables_manager:
+        class: %js.datatables_manager.class%
+        calls:
+            - [setContainer, ["@service_container"]]

@@ -14,7 +14,7 @@ class JSDataTablesManager implements ContainerAwareInterface {
     protected $container;
 
     public function getDt($name, Request $request) {
-        $dataTablesConfig = $this->container->getParameter('js_datatables.config');
+        $dataTablesConfig = $this->container->getParameter('js.datatables');
         if (array_key_exists($name, $dataTablesConfig))
         {
             $dtConfig = $this->getDtConfig($name);
@@ -47,7 +47,7 @@ class JSDataTablesManager implements ContainerAwareInterface {
     }
 
     public function getDtConfig($name) {
-        return $this->container->getParameter('js_datatables.config')[$name]['dt_config'];
+        return $this->container->getParameter('js.datatables')[$name]['dt_config'];
     }
 
     public function setContainer(ContainerInterface $container = null) {
